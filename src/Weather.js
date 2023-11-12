@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { SpinnerInfinity } from "spinners-react";
 
 export default function Weather(props) {
   function showWeatherInfo(response) {
@@ -13,5 +14,10 @@ export default function Weather(props) {
 
   axios.get(baseWeatherURL).then(showWeatherInfo);
 
-  return <h2>Hello from Weather component</h2>;
+  return (
+    <div className="WeatherClass">
+      <h2>Hello from Weather component</h2>
+      <SpinnerInfinity />
+    </div>
+  );
 }
