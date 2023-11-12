@@ -1,0 +1,22 @@
+.Forecast {
+  padding: 0 0 0 9px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.Forecast .main-weather-pic {
+  width: 120px;
+  height: 120px;
+}
+
+.Forecast h1 {
+  padding: 20px 0 10px 0px;
+}
+
+.Forecast .city-icon {
+  width: 20px;
+  padding: 0 0 10px 0;
+}
+.Forecast .city-name {
+  padding: 0;
+}

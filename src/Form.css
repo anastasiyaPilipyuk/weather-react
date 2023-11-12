@@ -1,0 +1,16 @@
+.Form {
+  width: 100%;
+}
+
+.Form .btn-fix-width {
+  width: 150px !important;
+}
+
+.Form .quick-link {
+  font-size: 14px;
+}
+
+.Form .city-list-style,
+.city-list {
+  text-decoration: none;
+}
