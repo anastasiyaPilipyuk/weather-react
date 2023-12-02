@@ -1,6 +1,5 @@
 import Footer from "./Footer";
 import Form from "./Form";
-import Forecast from "./Forecast";
 import "./App.css";
 
 function App() {
@@ -10,7 +9,6 @@ function App() {
         <div className="card card-width">
           <div className="card-body pb-0">
             <Form />
-            <Forecast />
           </div>
         </div>
         <Footer />

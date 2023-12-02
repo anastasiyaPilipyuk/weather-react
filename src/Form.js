@@ -1,5 +1,6 @@
 import React from "react";
 import "./Form.css";
+import Forecast from "./Forecast";
 
 export default function Form() {
   return (
@@ -12,7 +13,8 @@ export default function Form() {
             type="search"
             placeholder="Enter city name"
             aria-label="Search"
-            autocomplete="false"
+            autoComplete="false"
+            autoFocus="on"
           />
           <button
             className="btn btn-outline-secondary btn-fix-width"
@@ -43,6 +45,7 @@ export default function Form() {
           </button>
         </div>
       </form>
+      <Forecast defaultCity="Prague" />
     </div>
   );
 }
