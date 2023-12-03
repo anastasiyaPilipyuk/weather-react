@@ -2,6 +2,7 @@ import React from "react";
 import "./Forecast.css";
 import ForecastDetails from "./ForecastDetails";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function Forecast(props) {
   function getTemperature(value) {
@@ -28,12 +29,7 @@ export default function Forecast(props) {
           </div>
           <div className="row">
             <div className="col-4">
-              <img
-                id="weather-icon"
-                src={props.data.condition.icon_url}
-                alt={props.data.condition.icon}
-                className="main-weather-pic"
-              />
+              <WeatherIcon icon={props.data.condition.icon} />
             </div>
             <div className="col-8 pt-3 ps-4">
               <span className="main-temp">
@@ -52,7 +48,7 @@ export default function Forecast(props) {
               </span>
               <br />
               <span className="main-info">
-                Wind: <span id="curr-wind">{props.data.wind}</span>&nbsp;km/h
+                Wind: <span id="curr-wind">{props.data.wind}</span>&nbsp;m/s
               </span>
             </div>
           </div>
