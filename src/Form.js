@@ -6,10 +6,10 @@ import axios from "axios";
 export default function Form(props) {
   let [weatherData, setWeatherData] = useState({});
   const [city, setCity] = useState(props.defaultCity);
+  let apiKey = "a254804501843d5o84b16tf864cb33f6";
+  let units = "metric";
 
   function search() {
-    let apiKey = "a254804501843d5o84b16tf864cb33f6";
-    let units = "metric";
     let baseWeatherURL = `https://api.shecodes.io/weather/v1/current?key=${apiKey}&units=${units}&query=${city}`;
 
     axios.get(baseWeatherURL).then(handleResponse);
@@ -41,6 +41,14 @@ export default function Form(props) {
     setCity(event.target.value);
   }
 
+  function handlePreSetCity(event) {
+    event.preventDefault();
+    setCity(event.target.innerText);
+    let baseWeatherURL = `https://api.shecodes.io/weather/v1/current?key=${apiKey}&units=${units}&query=${event.target.innerText}`;
+
+    axios.get(baseWeatherURL).then(handleResponse);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Form">
@@ -64,13 +72,25 @@ export default function Form(props) {
             </button>
           </div>
           <div className="link-container">
-            <button type="button" className="btn btn-link quick-link city-list">
+            <button
+              type="button"
+              className="btn btn-link quick-link city-list"
+              onClick={handlePreSetCity}
+            >
               Prague
             </button>
-            <button type="button" className="btn btn-link quick-link city-list">
+            <button
+              type="button"
+              className="btn btn-link quick-link city-list"
+              onClick={handlePreSetCity}
+            >
               Vien
             </button>
-            <button type="button" className="btn btn-link quick-link city-list">
+            <button
+              type="button"
+              className="btn btn-link quick-link city-list"
+              onClick={handlePreSetCity}
+            >
               London
             </button>
             <button
