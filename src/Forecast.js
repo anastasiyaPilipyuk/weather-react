@@ -4,6 +4,10 @@ import ForecastDetails from "./ForecastDetails";
 import FormattedDate from "./FormattedDate";
 
 export default function Forecast(props) {
+  function getTemperature(value) {
+    return Math.floor(value);
+  }
+
   return (
     <div className="Forecast">
       <h1>
@@ -33,7 +37,9 @@ export default function Forecast(props) {
             </div>
             <div className="col-8 pt-3 ps-4">
               <span className="main-temp">
-                <span id="curr-temp-C">{props.data.temperature}</span>{" "}
+                <span id="curr-temp-C">
+                  {getTemperature(props.data.temperature)}
+                </span>{" "}
               </span>
               °&nbsp; <span className="measure">C</span>
               <br />
@@ -46,7 +52,7 @@ export default function Forecast(props) {
               </span>
               <br />
               <span className="main-info">
-                Wind: <span id="curr-wind">7.2</span>&nbsp;km/h
+                Wind: <span id="curr-wind">{props.data.wind}</span>&nbsp;km/h
               </span>
             </div>
           </div>

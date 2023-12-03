@@ -28,6 +28,7 @@ export default function Form(props) {
       date: new Date(response.data.time * 1000),
       humidity: response.data.temperature.humidity,
       temperature: response.data.temperature.current,
+      wind: response.data.wind.speed,
     });
   }
 
