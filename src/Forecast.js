@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Forecast.css";
 import ForecastDetails from "./ForecastDetails";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 export default function Forecast(props) {
   let apiKey = "a254804501843d5o84b16tf864cb33f6";
@@ -20,6 +21,7 @@ export default function Forecast(props) {
         icon: response.data.condition.icon,
         icon_url: response.data.condition.icon_url,
       },
+      date: new Date(response.data.time * 1000),
       humidity: response.data.temperature.humidity,
       temperature: response.data.temperature.current,
     });
@@ -38,7 +40,9 @@ export default function Forecast(props) {
             <div className="row">
               <div className="col">
                 <h5>
-                  <span id="curr-datetime">Sun. 15.10.2023 14:18</span>
+                  <span id="curr-datetime">
+                    <FormattedDate date={weatherData.date} />
+                  </span>
                 </h5>
               </div>
             </div>
