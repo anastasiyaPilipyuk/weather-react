@@ -3,12 +3,9 @@ import "./Forecast.css";
 import ForecastDetails from "./ForecastDetails";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import ShowTemperature from "./ShowTemperature";
 
 export default function Forecast(props) {
-  function getTemperature(value) {
-    return Math.floor(value);
-  }
-
   return (
     <div className="Forecast">
       <h1>
@@ -32,13 +29,7 @@ export default function Forecast(props) {
               <WeatherIcon icon={props.data.condition.icon} />
             </div>
             <div className="col-8 pt-3 ps-4">
-              <span className="main-temp">
-                <span id="curr-temp-C">
-                  {getTemperature(props.data.temperature)}
-                </span>{" "}
-              </span>
-              °&nbsp; <span className="measure">C</span>
-              <br />
+              <ShowTemperature temperature={props.data.temperature} />
               <span id="curr-descr" className="main-info">
                 {props.data.condition.description}
               </span>
