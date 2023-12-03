@@ -8,7 +8,7 @@ function App() {
       <div className="container m-2">
         <div className="card card-width">
           <div className="card-body pb-0">
-            <Form />
+            <Form defaultCity="Paris" />
           </div>
         </div>
         <Footer />
