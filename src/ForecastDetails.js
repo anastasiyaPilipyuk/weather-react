@@ -19,7 +19,7 @@ export default function ForecastDetails(props) {
       <div className="ForecastDetails col-5 pe-4">
         {forecast.map(function (item, i) {
           if (i < 6 && i !== 0) {
-            return <ForecastDay forecast={item} />;
+            return <ForecastDay forecast={item} key={i} />;
           }
           return null;
         })}
