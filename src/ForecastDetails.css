@@ -1,5 +1,5 @@
 .ForecastDetails {
-  display: none;
+  display: block;
 }
 
 .ForecastDetails .add-label {

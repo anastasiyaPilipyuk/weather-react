@@ -1,84 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ForecastDetails.css";
+import axios from "axios";
+import ForecastDay from "./ForecastDay";
 
-export default function ForecastDetails() {
-  return (
-    <div className="ForecastDetails col-5 pe-4">
-      <div className="row add-info-row text-end">
-        <div className="col-3 p-1 text-start">
-          <span className="add-label">Mon</span>
-        </div>
-        <div className="col-3 p-0 p-lg-1">
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-            alt="cloudy"
-            className="add-weather-pic"
-          />
-        </div>
-        <div className="col-6 p-1">
-          <label className="add-temp">10 °C / 8 °C</label>
+export default function ForecastDetails(props) {
+  let [forecast, setForecast] = useState(null);
+
+  function handleResponse(response) {
+    setForecast(response.data.daily);
+  }
+
+  if (forecast !== null) {
+    console.log(forecast);
+    return (
+      <div className="ForecastDetails col-5 pe-4">
+        <div className="row add-info-row text-end">
+          <ForecastDay forecast={forecast[0]} />
         </div>
       </div>
-      <div className="row add-info-row text-end">
-        <div className="col-3 p-1 text-start">
-          <span className="add-label ">Tue</span>
-        </div>
-        <div className="col-3 p-0 p-lg-1">
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-            alt="cloudy"
-            className="add-weather-pic"
-          />
-        </div>
-        <div className="col-6 p-1">
-          <label className="add-temp">10 °C / 8 °C</label>
-        </div>
-      </div>
-      <div className="row add-info-row text-end">
-        <div className="col-3 p-1 text-start">
-          <span className="add-label">Wed</span>
-        </div>
-        <div className="col-3 p-0 p-lg-1">
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-            alt="cloudy"
-            className="add-weather-pic"
-          />
-        </div>
-        <div className="col-6 p-1 ">
-          <label className="add-temp">10 °C / 8 °C</label>
-        </div>
-      </div>
-      <div className="row add-info-row text-end">
-        <div className="col-3 p-1 text-start">
-          <span className="add-label">Thu</span>
-        </div>
-        <div className="col-3 p-0 p-lg-1">
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-            alt="cloudy"
-            className="add-weather-pic"
-          />
-        </div>
-        <div className="col-6 p-1">
-          <label className="add-temp">10 °C / 8 °C</label>
-        </div>
-      </div>
-      <div className="row add-info-row text-end">
-        <div className="col-3 p-1 text-start">
-          <span className="add-label">Fri</span>
-        </div>
-        <div className="col-3 p-0 p-lg-1">
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-            alt="cloudy"
-            className="add-weather-pic"
-          />
-        </div>
-        <div className="col-6 p-1">
-          <label className="add-temp">10 °C / 8 °C</label>
-        </div>
-      </div>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = "a254804501843d5o84b16tf864cb33f6";
+    let units = "metric";
+    //let url = `https://api.shecodes.io/weather/v1/forecast?lon=${props.coordinates.longitude}&lat=${props.coordinates.latitude}&key=${apiKey}&units=${units}}`;
+    let url = `https://api.shecodes.io/weather/v1/forecast?query=${props.city}&key=${apiKey}`;
+
+    axios.get(url).then(handleResponse);
+  }
+  return null;
 }

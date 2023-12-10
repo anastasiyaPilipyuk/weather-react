@@ -26,7 +26,7 @@ export default function Forecast(props) {
           </div>
           <div className="row">
             <div className="col-4">
-              <WeatherIcon icon={props.data.condition.icon} />
+              <WeatherIcon icon={props.data.condition.icon} size={72} />
             </div>
             <div className="col-8 pt-3 ps-4">
               <ShowTemperature temperature={props.data.temperature} />
@@ -44,7 +44,10 @@ export default function Forecast(props) {
             </div>
           </div>
         </div>
-        <ForecastDetails />
+        <ForecastDetails
+          coordinates={props.data.coordinates}
+          city={props.data.city}
+        />
       </div>
     </div>
   );

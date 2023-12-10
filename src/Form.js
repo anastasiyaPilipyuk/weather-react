@@ -25,6 +25,7 @@ export default function Form(props) {
         icon: response.data.condition.icon,
         icon_url: response.data.condition.icon_url,
       },
+      coordinates: response.data.coordinates,
       date: new Date(response.data.time * 1000),
       humidity: response.data.temperature.humidity,
       temperature: response.data.temperature.current,
