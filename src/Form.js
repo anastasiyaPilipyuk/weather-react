@@ -96,13 +96,10 @@ export default function Form(props) {
             </button>
             <button
               type="button"
-              id="curr-location"
-              className="btn btn-link quick-link city-list-style"
+              className="btn btn-link quick-link city-list"
+              onClick={handlePreSetCity}
             >
-              <span role="img" aria-label="earth">
-                🌐
-              </span>
-              Your location
+              Kyiv
             </button>
           </div>
         </form>

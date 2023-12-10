@@ -22,18 +22,20 @@ export default function ForecastDay(props) {
   }
 
   return (
-    <div className="ForecastDay row add-info-row text-end">
-      <div className="col-3 p-1 text-start">
-        <span className="add-label">{getDay()}</span>
+    <span className="ForecastDay">
+      <div className="row add-info-row text-end">
+        <div className="col-3 p-1 text-start">
+          <span className="add-label">{getDay()}</span>
+        </div>
+        <div className="col-3 p-0 p-lg-1">
+          <WeatherIcon icon={props.forecast.condition.icon} size={24} />
+        </div>
+        <div className="col-6 p-1">
+          <label className="add-temp">
+            {getMaxTemp()}C /{getMinTemp()}C
+          </label>
+        </div>
       </div>
-      <div className="col-3 p-0 p-lg-1">
-        <WeatherIcon icon={props.forecast.condition.icon} size={35} />
-      </div>
-      <div className="col-6 p-1">
-        <label className="add-temp">
-          {getMaxTemp()}C /{getMinTemp()}C
-        </label>
-      </div>
-    </div>
+    </span>
   );
 }
