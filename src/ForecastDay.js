@@ -1,5 +1,6 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
+import "./ForecastDay.css";
 
 export default function ForecastDay(props) {
   function getTemperature(value) {
@@ -21,7 +22,7 @@ export default function ForecastDay(props) {
   }
 
   return (
-    <div className="ForecastDay">
+    <div className="ForecastDay row add-info-row text-end">
       <div className="col-3 p-1 text-start">
         <span className="add-label">{getDay()}</span>
       </div>

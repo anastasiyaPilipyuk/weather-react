@@ -1,0 +1,15 @@
+.ForecastDay .add-label {
+    font-size: 18px;
+}
+
+.ForecastDay .add-info-row {
+    border: 1px solid white;
+}
+
+.ForecastDay .add-info-row:hover {
+    border: 1px solid #86d6e3;
+}
+
+.ForecastDay .add-weather-pic {
+    height: 35px;
+}
