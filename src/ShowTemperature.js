@@ -21,35 +21,12 @@ export default function ShowTemperature(props) {
     setUnit("celsius");
   }
 
-  if (unit === "celsius") {
-    return (
-      <div className="ShowTemperature">
-        <span className="main-temp">
-          <span id="curr-temp-C">{getTemperature(props.temperature)}</span>{" "}
-        </span>
-        °&nbsp;{" "}
-        <span className="measure">
-          C |{" "}
-          <a href="/" onClick={convertToFahrenheit}>
-            F
-          </a>
-        </span>
-      </div>
-    );
-  }
-
   return (
     <div className="ShowTemperature">
       <span className="main-temp">
         <span id="curr-temp-C">{getTemperature(props.temperature)}</span>{" "}
       </span>
-      °&nbsp;{" "}
-      <span className="measure">
-        <a href="/" onClick={convertToCelsius}>
-          C
-        </a>{" "}
-        | F
-      </span>
+      °&nbsp; <span className="measure">C</span>
     </div>
   );
 }
